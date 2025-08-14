@@ -1,5 +1,6 @@
 from playwright.sync_api import sync_playwright, expect
 
+# Работа с авторизацией через куки
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
@@ -20,10 +21,12 @@ with sync_playwright() as playwright:
     registration_button = page.get_by_test_id('registration-page-registration-button')
     registration_button.click()
 
+    # Забираем состояние браузера и помещаем в JSON
     context.storage_state(path='browser-state.json')
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
+    # Используем ранее сохраненное состояние браузера
     context = browser.new_context(storage_state='browser-state.json')
     page = context.new_page()
 
