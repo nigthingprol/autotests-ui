@@ -5,10 +5,9 @@ with sync_playwright() as playwright:
     context = browser.new_context()
     page = context.new_page()
 
-    link_registration = 'https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration'
 
     # Открываю страницу + явно дожидаюсь загрузки
-    page.goto(link_registration,
+    page.goto('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration',
               wait_until="networkidle")
 
     # Локатор кнопки регистрации + ввод текста + проверка текста в инпуте
@@ -40,16 +39,15 @@ with sync_playwright() as playwright:
     context = browser.new_context(storage_state='playwright_courses_browser_state.json')
     page = context.new_page()
 
-    # Помещаю в переменную новую ссылку
-    link_courses = 'https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses'
 
     # Перехожу по новой ссылке
-    page.goto(link_courses,
+    page.goto('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses',
               wait_until='networkidle')
 
     # Локатор заголовка + проверка видимости и текста в нем
     courses_title = page.get_by_test_id('courses-list-toolbar-title-text')
-    expect(courses_title).to_be_visible() and expect (courses_title).to_have_text('Courses')
+    expect(courses_title).to_be_visible()
+    expect (courses_title).to_have_text('Courses')
 
     # Локатор иконки "папка" + проверка видимости
     courses_icon = page.get_by_test_id('courses-list-empty-view-icon')
@@ -57,10 +55,12 @@ with sync_playwright() as playwright:
 
     # Локатор элемента + проверка видимости + проверка текста в нем
     courses_title_text = page.get_by_test_id('courses-list-empty-view-title-text')
-    expect(courses_title_text).to_be_visible() and expect (courses_title_text).to_have_text('There is no results')
+    expect(courses_title_text).to_be_visible()
+    expect (courses_title_text).to_have_text('There is no results')
 
     # Локатор элемента + проверка видимости + проверка текста в нем
     courses_description = page.get_by_test_id('courses-list-empty-view-description-text')
-    expect(courses_description).to_be_visible() and expect (courses_description).to_have_text('Results from the load test pipeline will be displayed here')
+    expect(courses_description).to_be_visible()
+    expect (courses_description).to_have_text('Results from the load test pipeline will be displayed here')
 
 
