@@ -1,15 +1,13 @@
-import pytest 
-from typing import Generator
-from playwright.sync_api import sync_playwright, Page, Playwright, expect
+import pytest
+from playwright.sync_api import Page, Playwright
 
 
+# Фикстура, возвращающая страницу 
 @pytest.fixture
 def chromium_page(playwright: Playwright) -> Page:
         browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context()
-        yield browser.new_page(), context
+        yield browser.new_page()
         browser.close()
-
 
 # Фикстура, регистрирующая нового юзера + сохраняющая состояние браузера
 @pytest.fixture(scope='session')
@@ -38,8 +36,6 @@ def initialize_browser_state(playwright: Playwright) -> None:
     # Забираем состояние браузера и помещаем в JSON
     context.storage_state(path='browser-state.json')
 
-    page.close()
-    context.close()
     browser.close()
 
 
@@ -51,7 +47,5 @@ def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -
     context = browser.new_context(storage_state='browser-state.json')
     page = context.new_page()
     yield page
-    page.close()
-    context.close()
+    
     browser.close()
-      
