@@ -5,9 +5,9 @@ from playwright.sync_api import Page, Playwright
 # Фикстура, возвращающая страницу 
 @pytest.fixture
 def chromium_page(playwright: Playwright) -> Page:
-        browser = playwright.chromium.launch(headless=False)
-        yield browser.new_page()
-        browser.close()
+    browser = playwright.chromium.launch(headless=False)
+    yield browser.new_page()
+    browser.close()
 
 # Фикстура, регистрирующая нового юзера + сохраняющая состояние браузера
 @pytest.fixture(scope='session')
