@@ -8,4 +8,4 @@ class BasePage:
         self.page.goto(url, wait_until='networkidle')
 
     def reload(self):
-        self.page.reload(wait_until='networkidle')
+        self.page.reload(wait_until='networkidle') 
