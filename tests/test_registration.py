@@ -12,7 +12,5 @@ def test_successful_registration(registration_page: RegistrationPage, dashboard_
     registration_page.registration_form.fill(email=email, username=username, password=password)
     registration_page.registration_form.check_visible(email=email, username=username, password=password)
     registration_page.click_registration_button()
-
-    # Проверка видимости заголовка "Dashboard"
-    dashboard_page.check_visible_dashboard_title()
+    dashboard_page.dashboard_toolbar.check_visible() 
 
