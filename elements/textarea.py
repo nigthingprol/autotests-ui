@@ -4,7 +4,7 @@ from elements.base_element import BaseElement
 
 class TextArea(BaseElement):
     def get_locator(self, nth: int = 0, **kwargs) -> Locator:
-        return super().get_locator(nth, **kwargs).locator('input').first
+        return super().get_locator(nth, **kwargs).locator('textarea').first
 
     def fill(self, value: str, nth: int = 0, **kwargs):
         locator = self.get_locator(nth, **kwargs)
