@@ -3,6 +3,7 @@ from pages.base_page import BasePage
 from elements.button import Button
 from elements.link import Link
 from playwright.sync_api import Page, expect
+import re
 
 # Создаю класс страницы регистрации
 class RegistrationPage(BasePage):
@@ -22,5 +23,6 @@ class RegistrationPage(BasePage):
     # Метод, кликающий по кнопке Login
     def click_login_page_link(self):
         self.login_page_link.click()
+        self.check_current_url(re.compile(".*/#/auth/login"))
 
 
