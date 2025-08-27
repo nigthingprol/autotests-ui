@@ -16,6 +16,9 @@ from allure_commons.types import Severity
 @allure.epic(AllureEpic.LMS)
 @allure.feature(AllureFeature.AUTHENTICATION)
 @allure.story(AllureStory.REGISTRATION)
+@allure.parent_suite(AllureEpic.LMS)
+@allure.suite(AllureFeature.AUTHENTICATION)
+@allure.sub_suite(AllureStory.REGISTRATION)
 class TestRegistration:
     @pytest.mark.parametrize('email, username, password', [('email@mail.ru', 'username', 'password')])
     @allure.title('Registration with correct email, username and password')
