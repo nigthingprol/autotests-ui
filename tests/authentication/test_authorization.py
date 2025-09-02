@@ -8,7 +8,7 @@ import pytest
 from pages.authentication.login_page import LoginPage
 from pages.authentication.registration_page import RegistrationPage
 from pages.dashboard.dashboard_page import DashboardPage
-from pages.authentication.login_page import LoginPage
+from pages.authentication.login_page import LoginPage 
 from allure_commons.types import Severity
 
 @pytest.mark.regression

@@ -4,6 +4,7 @@ from components.navigation.sidebar_list_item_component import SidebarListItemCom
 import re
 import allure
 
+
 class SidebarComponent(BaseComponent):
     def __init__(self, page: Page):
         super().__init__(page)

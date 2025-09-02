@@ -12,7 +12,7 @@ from allure_commons.types import Severity
 
 @pytest.mark.regression
 @pytest.mark.registration
-@allure.tag(AllureTag.REGRESSION, AllureTag.REGISTRATION)
+@allure.tag(AllureTag.REGRESSION, AllureTag.REGISTRATION) 
 @allure.epic(AllureEpic.LMS)
 @allure.feature(AllureFeature.AUTHENTICATION)
 @allure.story(AllureStory.REGISTRATION)
