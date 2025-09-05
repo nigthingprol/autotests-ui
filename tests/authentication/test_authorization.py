@@ -3,7 +3,6 @@ from tools.allure.epics import AllureEpic
 from tools.allure.features import AllureFeature
 from tools.allure.tags import AllureTag
 from tools.allure.stories import AllureStory 
-from playwright.sync_api import expect, Page
 import pytest
 from pages.authentication.login_page import LoginPage
 from pages.authentication.registration_page import RegistrationPage
