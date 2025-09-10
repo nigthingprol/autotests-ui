@@ -30,6 +30,7 @@ class BaseElement:
             logger.info(step)
             locator.click()
 
+
     def check_visible(self, nth: int = 0, **kwargs):
         step = f"Checking that {self.type_of} '{self.name}' is visible"
 
