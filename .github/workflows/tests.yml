@@ -46,6 +46,10 @@ jobs:
           restore-keys: |
             coverage-history-
 
+      - name: Generate Coverage report
+        run: |
+          ui-coverage-tool save-report
+
       - name: Cache Coverage history
         if: always()
         uses: actions/cache/save@v4 
@@ -53,11 +57,7 @@ jobs:
           path: coverage-history.json
           key: coverage-history-${{ github.run_id }}
 
-      - name: Generate Coverage report
-        run: |
-          ui-coverage-tool save-report
-
-      - name: Upload Coverage results
+      - name: Upload Coverage report
         if: always()
         uses: actions/upload-artifact@v4
         with:
