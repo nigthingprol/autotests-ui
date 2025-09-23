@@ -25,7 +25,7 @@ class BaseElement:
             return self.page.get_by_test_id(locator).nth(nth)
         
     def get_raw_locator(self, nth: int = 0, **kwargs) -> str:
-        return f"//*data-testid='{self.locator.format(**kwargs)}'[{nth + 1}]"
+        return f"//*[@data-testid='{self.locator.format(**kwargs)}'][{nth + 1}]"
     
     def track_coverage(self, action_type: ActionType, nth: int = 0, **kwargs):
             tracker.track_coverage(
