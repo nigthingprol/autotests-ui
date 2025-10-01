@@ -31,7 +31,3 @@ class Button(BaseElement):
             expect(locator).to_be_disabled()
     
         self.track_coverage(ActionType.DISABLED, nth, **kwargs)
-    
-     
-
-     
