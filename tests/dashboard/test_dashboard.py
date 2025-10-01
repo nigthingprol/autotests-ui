@@ -2,7 +2,7 @@ from pages.dashboard.dashboard_page import DashboardPage
 import pytest
 from components.navigation.navbar_component import NavbarComponent
 import allure
-from tests.pytest.test_fixtures import settings
+from config import settings
 from tools.allure.tags import AllureTag
 from tools.allure.epics import AllureEpic
 from tools.allure.features import AllureFeature
